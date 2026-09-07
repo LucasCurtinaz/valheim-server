@@ -1,6 +1,6 @@
 services:
   valheim:
-    image: mbround18/valheim-docker:latest
+    image: lloesche/valheim-server
     container_name: valheim-server
     restart: unless-stopped
     ports:

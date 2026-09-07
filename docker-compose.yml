@@ -1,0 +1,14 @@
+services:
+  valheim:
+    image: lloesche/valheim-server
+    container_name: valheim-server
+    restart: unless-stopped
+    ports:
+      - "2456-2458:2456-2458/udp"
+    environment:
+      - SERVER_NAME="Curtinaz"
+      - WORLD_NAME="expuxadores"
+      - SERVER_PASS="expuxadores"
+      - SERVER_PUBLIC="true"
+    volumes:
+      - ./config:/config

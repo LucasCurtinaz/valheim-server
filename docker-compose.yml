@@ -1,14 +1,21 @@
+version: "3.8"
+
 services:
   valheim:
-    image: lloesche/valheim-server
+    image: mbround18/valheim-docker:latest
     container_name: valheim-server
     restart: unless-stopped
     ports:
-      - "2456-2458:2456-2458/udp"
+      - "2456:2456/udp"
+      - "2457:2457/udp"
+      - "2458:2458/udp"
     environment:
-      - SERVER_NAME=puxadores
-      - WORLD_NAME=puxadores
-      - SERVER_PASS=puxadores
-      - SERVER_PUBLIC=true
+      - NAME=puxadores
+      - WORLD=puxadores
+      - PASSWORD=puxadores
+      - PORT=2456
+      - PUBLIC=1
+      - VALIDATE_ON_INSTALL=1
     volumes:
-      - ./config:/config
+      - ./valheim/data:/home/steam/.config/unity3d
+      - ./valheim/server:/opt/valheim/server

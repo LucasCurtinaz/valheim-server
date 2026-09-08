@@ -8,12 +8,12 @@ services:
       - "2457:2457/udp"
       - "2458:2458/udp"
     environment:
-      - NAME=puxadores
-      - WORLD=puxadores
-      - PASSWORD=puxadores123
-      - PORT=2456
-      - PUBLIC=1
-      - VALIDATE_ON_INSTALL=1
+      - SERVER_NAME=puxadores
+      - WORLD_NAME=puxadores
+      - SERVER_PASS=puxadores123
+      - SERVER_PORT=2456
+      - SERVER_PUBLIC=1
+      - STEAMCMD_ARGS=validate
     volumes:
-      - ./valheim/data:/home/steam/.config/unity3d
-      - ./valheim/server:/opt/valheim/server
+      - ./valheim/data:/config
+      - ./valheim/server:/opt/valheim

@@ -1,19 +1,15 @@
 services:
   valheim:
-    image: lloesche/valheim-server
+    image: lloesche/valheim-server:latest
     container_name: valheim-server
     restart: unless-stopped
     ports:
-      - "2456:2456/udp"
-      - "2457:2457/udp"
-      - "2458:2458/udp"
+      - "2456-2458:2456-2458/udp"
     environment:
       - SERVER_NAME=puxadores
       - WORLD_NAME=puxadores
-      - SERVER_PASS=puxadores123
-      - SERVER_PORT=2456
+      - SERVER_PASS=secretvalheim
       - SERVER_PUBLIC=1
-      - STEAMCMD_ARGS=validate
     volumes:
       - ./valheim/data:/config
       - ./valheim/server:/opt/valheim
